@@ -47,7 +47,34 @@ n
 # Display current credentials
 n
 echo "$prompt Credentials: $tpmorp"
-$GIT config --list | grep -E "user.name|user.email|credential.helper"
+n
+
+#$GIT config --list | grep -E "user.name|user.email|credential.helper"
+$GIT config --list | grep -E "user.name|credential.helper"
+
+n
+
+#Display github cli status
+echo "$prompt GitHub status: $tpmorp"
+n
+
+gh status
+
+n
+
+#Check connection status
+n
+echo "$prompt Connection status: $tpmorp"
+connection=$(curl -s ipinfo.io)
+#ip=$(echo $connection | sed -E 's/^.*"ip": "([^"]*)".*$/\1/')
+#org=$(echo $connection | sed -E 's/^.*"org": "([^"]*)".*$/\1/')
+#hostname=$(echo $connection | sed -E 's/^.*"hostname": "([^"]*)".*$/\1/')
+city=$(echo $connection | sed -E 's/^.*"city": "([^"]*)".*$/\1/')
+region=$(echo $connection | sed -E 's/^.*"region": "([^"]*)".*$/\1/')
+country=$(echo $connection | sed -E 's/^.*"country": "([^"]*)".*$/\1/')
+loc=$(echo $connection | sed -E 's/^.*"loc": "([^"]*)".*$/\1/')
+timezone=$(echo $connection | sed -E 's/^.*"timezone": "([^"]*)".*$/\1/')
+echo "	$ip > $org > $hostname > $city > $region > $country > $timezone"
 n
 echo "$prompt Good luck!"
 n
