@@ -16,7 +16,6 @@ GIT_ALIAS=$(perl -nle 'print $1 if /^\s*[^#]/ && /alias\s+git=\s*['"'"'"]?(.+?)[
 n
 echo "$prompt Git system: $WHICHGIT"
 echo "$prompt Git alias: $GIT_ALIAS"
-echo -e "\033[0m"
 if [ -n "$GIT_ALIAS" ]; then
 	       WHICHGIT="$(which $GIT_ALIAS)"
 	       GIT=$GIT_ALIAS
@@ -25,6 +24,7 @@ else
    echo "$prompt Warining: Git alias not found in $BASHRC_FILE" >&2
 fi	
 
+echo -e "\033[0m"
 # Display current repository status
 n
 echo "$prompt Repository Status: $tpmorp"
@@ -40,6 +40,7 @@ n
 # Display remotes
 n
 echo "$prompt Remotes: $tpmorp"
+n
 $GIT remote -v
 n
 
