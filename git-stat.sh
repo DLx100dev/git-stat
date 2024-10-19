@@ -21,7 +21,7 @@ if [ -n "$GIT_ALIAS" ]; then
 	       GIT=$GIT_ALIAS
    echo "$prompt Using Git executable: $WHICHGIT"
 else
-   echo "$prompt Warining: Git alias not found in $BASHRC_FILE" >&2
+   echo "$prompt Notice: Git alias not found in $BASHRC_FILE" >&2
 fi	
 
 echo -e "\033[0m"
